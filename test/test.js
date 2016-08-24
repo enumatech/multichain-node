@@ -54,6 +54,10 @@ let startTests = () => {
         assert(res, "Could not get peer info");
     })
 
+    multichain.getBalance((err, res) => {
+        assert(res, "Could not get balance");
+    })
+
     multichain.getBlockHash({height: 1}, (err, blockHash) => {
         assert(blockHash, "Could not get block hash at height 1");
         multichain.getBlock({hash: blockHash}, (err, block) => {
@@ -499,3 +503,4 @@ let confirmCallback4 = () => {
 }
 
 startTests()
+
